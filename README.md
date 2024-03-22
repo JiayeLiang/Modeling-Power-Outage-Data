@@ -134,6 +134,7 @@ The trends of power outages across regions can seem like an uncorrelated mess sh
 similar looking trends have same unticks and down ticks of outages shown in figure 1. Interestingly a region minimal
 power outages is West North Central of United States while Northeast saw the greatest spike in number of power outages.
 
+---
 ## Assessment of Missingness
 ### NMAR Analysis
 
@@ -173,9 +174,114 @@ Test statistic calcualte the absolute difference in means population
   frameborder="0"
 ></iframe>
 
- Using a standard p-value cutoff of 0.05 my observed statistic is not significant my calcualte p-value of 0.3119 > 0.5 thus the
- we dont reject the null and assume there is no depdency between population and number of customers affected.
+Using a standard p-value cutoff of 0.05 my observed statistic is not significant my calcualte p-value of 
+0.3119 > 0.5 thus we dont reject the null and assume there is no depdency between population and number of customers affected.
+
+#### Modeling dependecy of start date time and year
+
+Null Hypothesis: The distribution for year where start date time is missing is the same as the distribution for year where start date time is not missing
+
+Alternative: The distribution for year where start date time is missing different from the distribution for year where start date time is not missing
+
+Test Statistic: Absolute difference in means for years
+
+#### Dependency of start date time and population (Start Date Time Not Missing)
+<iframe
+  src="images/year_vs_outage_count.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+#### Dependency of start date time  and population (Start Date Time Missing)
+<iframe
+  src="images/year_vs_outage_count2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+Using a p-value cutoff of 0.05, my calcuated p-value of 0 < 0.05 means that I should reject the null and accept the alternative where date time of a power outage may have dependency with the year column. 
+
+---
+## Hypothsis Testing
+### Question: How do major power outages differ in characteristics between densely populated states and sparesly populated state for outage duration
+
+Null Hypothesis: Large and small states share the same outage duration
+
+Alternative: Large have longer outage duration than smaller states
+
+Test statistic: absolute difference in means of outage duration
+
+I chose a p-value of significance to be 0.05 and I chose to perform a one sided test, because I believe larger states will expereince longer periods of outages. The reason is larger the state population require more expansive and complex power grids to supply everyonewith electrcity thus when issues arise they become more difficult to fix when compared to smaller power grids in small states.
+
+The reason I chose difference in means as my test statistic is because outage duration is numerical data and taking the meansis a good aggreation strategy to compare small and large states
+
+To clean up the data for testing I removed all the rows with NaN values and added a extra column size_category to categorize a state as small or large
+
+<iframe
+  src="images/hypothesis_test.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+Using a 0.05 cutoff, my calcuated p-value of 0.0005 < 0.05 thus I should reject the null in favor of the alternative stating larger states may experience longer duration of outages that smaller states. This conclusion
+might be explained by the more expansive and complex power grid required to supply electricity to a larger population. Thus when issues occurs it may be difficult to identify or locate leading to longer duration of outages.
+
+---
+## Framing a Prediction Problem
+
+For my model I wanted to build a regression model that could predict how many people were affected by a 
+power outage, because I'm interested in predicting the severity of power outages and number of people affected
+is a factor for power outage severity. To score my model I will use RMSE and R^2. 
 
 
+---
+## Baseline Model
 
+Qualitative: outage.duration, popden_urban
+Nominal: cause.category, climate.category, u.s._state, cause.category.detail, 
+### Features utlized: cause.category, outage.duration, climate.category, u.s._state, cause.category.detail, popden_urban
 
+I chose the columns cause category, cause duration, climate.category, cause.category.detail, because I believed they would be a good indicator on the power outage serverity thus would help in predicint number of people affected. I chose cause category, climate.category, cause.category.detail for similar reasons if the cause was
+vandalism then the outage would likely note be severe and would affect minimal number of people. On the other hand if the cause was a major hurricane or storm they we can expect a larger outage that affects more people.
+Cause duration could also be a measure of severity where longer power outage duration duration could suggest damages maybe severe and require greater reparation time. 
+
+I used states to highlight the different power grid infastrucutres of different states.Some state power grids are more interconnected than other more rural statesthus would see less people affected when a power station 
+shuts down.State poulation density was used because I believe more densily populated people are more pacted together so a power grid in a highly populated neighborhood would affect more people than less populated neighborhood.
+
+### Encodings
+I onehot encoded all the nomial columns
+
+### Performance
+Viewing the results of my model the features I have chosen do show correlation with number of people affected with an R^2 of 0.5537662949526712, but the ability to actually predict number of people affected is poor displayed by the high RMSE value of 253310.91
+
+---
+### Final Model
+
+#### Description
+In my new model the two columns I chose to add were population and outage start time. The reason I added population and applied a standard scaling was because states with larger population means a power outage could affect more people and standard scaling was applied to population reduces the impact of large population varation across states.
+
+I chose outage start time as my second column to add because I believe outages that occur late at night or close to dawn would affect less people, because people would typically be sleeping and wouldn't notice the power grid shutoff. A quantile scaling was chosen to cut the day into 4 parts dawn, mornging, afternoon and night
+The hyperparameters I utilized was n_quantiles for outage state time which I picked by trial and erorr.
+
+#### Performance
+For the final model I chosen linear regression to predict number ofpeople affected by power outage. Looking at the  R^2 score of 0.5547042598601943 and RMSE of 252886.88037342188 which show my final model had negligible improvement.
+
+---
+### Fairness Analysis
+
+#### Description
+For my fairness analysis I chose to compare my model predictions for small states and large states. Similar to categorization I did before, I found the median of state population and set and states with a population greater than median as large and any states with smaller population as small. 
+
+Null: My model is fair and have similar RMSE for small and large states
+
+Alternative: My model is unfair and have different RMSE for small and large states
+
+Test statistic: abs difference in RMSE
+
+I will use a 0.05 p-value cutoff to determine if I choose the null or alternative
+
+#### Analysis
+When solving for the observed data my model has a lower RMSE for smaller states than larger states which had a difference of 198766.5434220316 RMSE. From the results of the permutation test, my calcualated p-value for of 0.006 is less than 0.05 so I reject the null and assume my model may not be fair when predicting number of people affected for small and large states. 
