@@ -9,7 +9,7 @@ the trends of power outages to give a status on the health of the power grid as 
 # Data Set Introduction
 # outage, time of day of occurence
 |Column	                 |Description|
-|------------------------|-----------|
+| --- | --- |
 |YEAR                    | Indicates the year when the outage event occurrede|
 |MONTH	                 | Indicates the month when the outage event occurred|
 |U.S._STATE              | Represents all the states in the continental U.S.|
