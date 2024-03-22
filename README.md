@@ -33,13 +33,12 @@ my data exploration and analysis.
 # Data Cleaning
 I began by transforming the imported dataframe into a more readable format by giving the unamed columns their proper names and remvoing empty columns and rows at the beginning of the dataframe. The columns format was suitable so there were not typing change that were necessary. 
 
-|  OBS   | year	|month |	u.s._state	| climate.region	|...| cause.category.detail	|customers.affected	| population | poppct_urban |
-|---------------:|:------------|:--------------------|-------:| 
-| 0      |
-| 1      |
-| 2      |
-| 3      |
-| 4      |
-| 5      |
+|  OBS   | year	| month |	u.s._state | climate.region	|...| cause.category.detail	|customers.affected	| population | poppct_urban |
+|-------:|:---- |:------|:-----------|:---------------|:--|:----------------------|:------------------|:-----------|-------------:|
+|  138.4 | snack| 2008- |   2008     |                |...|                       |                   |            |              |
+|  595.1 | lunch| 2012- |   2012     |                |...|                       |                   |            |              |
+|  194.8 | snack| 2008- |   2008     |                |...|                       |                   |            |              | 
+|  194.8 | snack| 2009  |   2009     |                |...|                       |                   |            |              |
+|  194.8 | snack| 201   |   2013     |                |...|                       |                   |            |              |
 
 
