@@ -2,8 +2,8 @@
 **Authors**: Jiaye Liang
 
 ## Introduction
-As society continues to progress electricity becomes more and more of a essential part of life. My project aims to explore how power outages severity and
-frequency of power outages over time.
+As society continues to progress electricity becomes more and more of a essential part of life. My project aims to explore how power outages severity and frequency change over time. The importance of my project is to model
+the trends of power outages to give a status on the health of the power grid as our population alogn with electircity demand continues to grow. 
 
 # Data Set Introduction
 # outage, time of day of occurence
@@ -23,5 +23,23 @@ frequency of power outages over time.
 |`'CUSTOMERS.AFFECTED'`	     | Number of customers affected by the power outage event|
 |`'POPULATION'`	     | Population in the U.S. state in a year|
 |`'POPPCT_URBAN'`	     | Percentage of the total population of the U.S. state represented by the urban population (in %)|
+
+The dataset contains 1534 rows, each row refering to a major power outage. The columns listed above do not
+encompass all the columns from the original data set. I have chosen to list the columns that were revelant in
+my data exploration and analysis. 
+
+---
+## Data Cleaning and Exploratory Data Analysis
+# Data Cleaning
+I began by transforming the imported dataframe into a more readable format by giving the unamed columns their proper names and remvoing empty columns and rows at the beginning of the dataframe. The columns format was suitable so there were not typing change that were necessary. 
+
+|  OBS   | year	|month |	u.s._state	| climate.region	|...| cause.category.detail	|customers.affected	| population | poppct_urban |
+|---------------:|:------------|:--------------------|-------:| 
+| 0      |
+| 1      |
+| 2      |
+| 3      |
+| 4      |
+| 5      |
 
 
