@@ -1,9 +1,11 @@
 # Modeling-Power-Outage-Over-The-Years
 **Authors**: Jiaye Liang
 
+## Introduction
+
 |Column	                 |Description|
 |---                     |---        |
-|`'name'	`            |Recipe name|
+|`'name'	`     |Recipe name|
 |`'id'`	                 |Recipe ID|
 |`'minutes'`	         |Minutes to prepare recipe|
 |`'contributor_id'`	     |User ID who submitted this recipe|
