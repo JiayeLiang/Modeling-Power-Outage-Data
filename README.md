@@ -30,15 +30,22 @@ my data exploration and analysis.
 
 ---
 ## Data Cleaning and Exploratory Data Analysis
-# Data Cleaning
+### Univariate Analysis Data Cleaning
 I began by transforming the imported dataframe into a more readable format by giving the unamed columns their proper names and remvoing empty columns and rows at the beginning of the dataframe. The columns format was suitable so there were not typing change that were necessary. 
+
+Below is the dataframe afer cleaning and extraction the revelant columns:
 
 |  OBS   | year	| month |	u.s._state |     climate.region	|...| cause.category.detail	|customers.affected	| population | poppct_urban |
 |-------:|:---- |:------|:-----------|:-------------------|:--|:----------------------|:------------------|:-----------|-------------:|
-|  1     | 2011 | 7     |  Minnesota | East North Central |...|         NaN           |     70000         |    5348119 |              |
-|  2     | 2014 | 5     |  Minnesota | East North Central |...|         vandalism	    |     NaN           |    5457125 |              |
-|  3     | 2010 | 10    |  Minnesota | East North Central |...|          heavy wind   |     70000         |    5310903 |              | 
-|  4     | 2012 | 6     |  Minnesota | East North Central |...|       thunderstorm	  |     682000        |    5380443 |              |
-|  5     | 2015 | 7     |  Minnesota | East North Central |...|              NaN      |     250000        |    5489594 |              |
+|  1     | 2011 | 7     |  Minnesota | East North Central |...|         NaN           |     70000         |    5348119 |   73.27      |
+|  2     | 2014 | 5     |  Minnesota | East North Central |...|         vandalism	    |     NaN           |    5457125 |   73.27      |
+|  3     | 2010 | 10    |  Minnesota | East North Central |...|          heavy wind   |     70000         |    5310903 |   73.27      | 
+|  4     | 2012 | 6     |  Minnesota | East North Central |...|       thunderstorm	  |     682000        |    5380443 |   73.27      |
+|  5     | 2015 | 7     |  Minnesota | East North Central |...|              NaN      |     250000        |    5489594 |   73.27      |
+
+### Univariate Analysis
+Histogram 1 : Frequency of power outages over each Hour of Day
+
+<iframe src="images/outage_frequency_hour_of_day.html" width=800 height=600 frameBorder=0></iframe>
 
 
