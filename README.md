@@ -1,5 +1,5 @@
-# Modeling-Power-Outage-Data
-DSC80 Final Project
+# Modeling-Power-Outage-Over-The-Years
+**Authors**: Jiaye Liang
 
 |Column	                 |Description|
 |---                     |---        |
