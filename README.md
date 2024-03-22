@@ -7,7 +7,6 @@ As society continues to progress electricity becomes more and more of a essentia
 the trends of power outages to give a status on the health of the power grid as our population alogn with electircity demand continues to grow. 
 
 # Data Set Introduction
-# outage, time of day of occurence
 
 | Column	               | Description |
 | --- | --- |
