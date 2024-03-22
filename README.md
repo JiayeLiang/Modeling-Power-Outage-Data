@@ -44,7 +44,7 @@ Below is the dataframe afer cleaning and extraction the revelant columns:
 |  5     | 2015 | 7     |  Minnesota | East North Central |...|              NaN      |     250000        |    5489594 |   73.27      |
 
 ### Univariate Analysis
-Histogram 1 : Frequency of power outages over each Hour of Day
+#### Frequency of power outages over each Hour of Day
 
 <iframe
   src="images/outage_frequency_hour_of_day.html"
@@ -52,6 +52,130 @@ Histogram 1 : Frequency of power outages over each Hour of Day
   height="600"
   frameborder="0"
 ></iframe>
+
+The histogram shows roughly normal distribution with a surprising peak where power outages most commonly occur at 3:00pm. This does make sense as power usage is highest at noon therefore most likely to cause a grid overload where electric demand exceeds supply.
+
+#### Distribution of Customers Affected
+
+<iframe
+  src="images/customer_affected.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The histograms shows a right skewed distribution where most of major power outages affect around 100-500 thousand people and shows large power outages affecting millions residents are pretty rare.
+
+### Bivariate Analysis
+#### Population vs Customers Affected
+
+<iframe
+  src="images/pop_vs_customers_affected.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+Suprisingly the scatter plot is a patternless cloud showing little to nocorrelation between population and customers affected. The scatter plot also revevals
+population gaps where we create 3 groups. The groups seem to share a distribution for severity of power outages, have many small outages that affect
+small numbers of people and ocassionaly having severe outages affecting many people. 
+
+#### Customer Affected vs Outage Duration
+
+<iframe
+  src="images/outage_duration_vs_customers_affected.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The scatter plot seems like a patternless cloud with many of its points concentrated at the bottom where duration of outages are short. There are outliers on
+both extremes with outages affecting many people but haveing short duration and outages affect small number of people but having long duration.
+
+### Interesting Aggregates
+#### Models the frequency of power outages across each region of United States from year 2000 to 2016
+
+For aggregation I groupby Year and Climate Region and performed a count. The trends of the data is most prevelant when
+visualized.
+
+|  Year    | Climate.Region	| Count |
+|---------:|:--------------|-------:|
+|  2000    |  Central      |  4     | 
+|  2000    |  North East   |  2     | 
+|  2000    |  South        |  3     |
+|  2000    |  Southeast    |  6     | 
+|  2000    |  Southwest    |  3     | 
+
+### Figure 1
+<iframe
+  src="images/year_vs_power_outage1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+### Figure 2
+<iframe
+  src="images/year_vs_power_outage2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+### Figure 3
+<iframe
+  src="images/year_vs_power_outage3.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+The trends of power outages across regions can seem like an uncorrelated mess shown in figures 2 and 3 or they can be
+similar looking trends have same unticks and down ticks of outages shown in figure 1. Interestingly a region minimal
+power outages is West North Central of United States while Northeast saw the greatest spike in number of power outages.
+
+## Assessment of Missingness
+### NMAR Analysis
+
+A column that is seems to be NMAR is the months which refers to the month the power outage occured. Refering to 
+other columns such as outage.start.date or outage.start.time, these columns could suggest months is MAR, they seem to be depdent
+on months because they are missing as well. Thus months is most likely missing because the people who collected the data were unable 
+to pinpoint an exact month to all the power outage occurences. 
+
+Additional data that could make months MAR would be would be inclusion of documents reports with a dates regarding power outages.
+
+### Missingness Dependency
+
+Since I'm interested in study the severity of power outages over the years I wanted to test if dependcy existed between population and number of people affected to gauge if more heavily populated states have implement systems that would prevent widespread power outages. Therefore would see less people
+being affected despite their larger population
+
+#### Modeling dependecy of number of people affected by power outage and population
+Null : The distribution of state population where data for customers affected is present is the same as the distribution for state
+populaton where data for customers affected is not present
+
+Alternative: Population distribution is different for the groups where data for customers affected is present and not present
+
+Test statistic calcualte the absolute difference in means population
+
+#### Dependency of number of people affected and population (Number of People Affected Not Missing)
+<iframe
+  src="images/pop_vs_outage_count.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+#### Dependency of number of people affected and population (Number of People Affected Missing)
+<iframe
+  src="images/pop_vs_outage_count2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+ Using a standard p-value cutoff of 0.05 my observed statistic is not significant my calcualte p-value of 0.3119 > 0.5 thus the
+ we dont reject the null and assume there is no depdency between population and number of customers affected.
+
 
 
 
