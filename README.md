@@ -2,10 +2,11 @@
 **Authors**: Jiaye Liang
 
 ## Introduction
-
+As society continues to progress electricity becomes more and more of a essential part of life. My project aims to explore how the United States 
+has dealt with power outages over the years charting its frequency and severity. 
 |Column	                 |Description|
 |---                     |---        |
-|`'name'	`     |Recipe name|
+|`'name'	`              |Recipe name|
 |`'id'`	                 |Recipe ID|
 |`'minutes'`	         |Minutes to prepare recipe|
 |`'contributor_id'`	     |User ID who submitted this recipe|
