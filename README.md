@@ -8,22 +8,22 @@ the trends of power outages to give a status on the health of the power grid as 
 
 # Data Set Introduction
 # outage, time of day of occurence
-|Column	                 |Description|
+| Column	               | Description |
 | --- | --- |
-|YEAR                    | Indicates the year when the outage event occurrede|
-|MONTH	                 | Indicates the month when the outage event occurred|
-|U.S._STATE              | Represents all the states in the continental U.S.|
-|CLIMATE.REGION          | Refers to the nine climatically consistent regions in continental U.S.A.|
-|CLIMATE.CATEGORY        | “Warm”, “Cold” or “Normal” are based "+" or "-" 0.5 °C for the Oceanic Niño Index|
-|OUTAGE.START.DATE       | Indicate day of year power outage began|
-|OUTAGE.START.TIME	     | Indicate time of day power outage began|
-|OUTAGE.RESTORATION.DATE | Indiate day of year power was restored|
-|OUTAGE.RESTORATION.TIME | Indicate time of day power was restored|
-|CAUSE.CATEGORY   	     | Categories of all the events causing the major power outages|
-|CAUSE.CATEGORY.DETAIL   | Detailed description of the event categories causing the major power outages|
-|CUSTOMERS.AFFECTED  	   | Number of customers affected by the power outage event|
-|POPULATION       	     | Population in the U.S. state in a year|
-|POPPCT_URBAN     	     | Percentage of the total population of the U.S. state represented by the urban population (in %)|
+| YEAR                    | Indicates the year when the outage event occurrede |
+| MONTH	                 | Indicates the month when the outage event occurred |
+| U.S._STATE              | Represents all the states in the continental U.S. |
+| CLIMATE.REGION          | Refers to the nine climatically consistent regions in continental U.S.A. |
+| CLIMATE.CATEGORY        | Categorized based "+" or "-" 0.5 °C for the Oceanic Niño |
+| OUTAGE.START.DATE       | Indicate day of year power outage began |
+| OUTAGE.START.TIME	     | Indicate time of day power outage began |
+| OUTAGE.RESTORATION.DATE | Indiate day of year power was restored |
+| OUTAGE.RESTORATION.TIME | Indicate time of day power was restored |
+| CAUSE.CATEGORY   	     | Categories of all the events causing the major power outages |
+| CAUSE.CATEGORY.DETAIL | Detailed description of the event categories causing the major power outages |
+| CUSTOMERS.AFFECTED  	   | Number of customers affected by the power outage event |
+| POPULATION       	     | Population in the U.S. state in a year |
+| POPPCT_URBAN     	     | Percentage of population of state living in urban area |
 
 The dataset contains 1534 rows, each row refering to a major power outage. The columns listed above do not
 encompass all the columns from the original data set. I have chosen to list the columns that were revelant in
