@@ -46,7 +46,7 @@ Below is the dataframe afer cleaning and extraction the revelant columns:
 ### Univariate Analysis
 Histogram 1 : Frequency of power outages over each Hour of Day
 
-<iframe src="images/customer_affected.html" width=800 height=600 frameBorder=0></iframe>
+<img src="images/customer_affected.html" width=800 height=600 frameBorder=0>
 
 
 
