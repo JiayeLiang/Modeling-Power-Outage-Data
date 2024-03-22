@@ -8,7 +8,7 @@ the trends of power outages to give a status on the health of the power grid as 
 # Data Set Introduction
 # outage, time of day of occurence
 |Column	                 |Description|
-|-----------------------:|----------:|
+|------------------------|-----------|
 |`'YEAR'	`              | Indicates the year when the outage event occurrede|
 |`'MONTH'`	                 | Indicates the month when the outage event occurred|
 |`'U.S._STATE'`	         | Represents all the states in the continental U.S.|
@@ -46,7 +46,12 @@ Below is the dataframe afer cleaning and extraction the revelant columns:
 ### Univariate Analysis
 Histogram 1 : Frequency of power outages over each Hour of Day
 
-<iframe src="images/customer_affected.html" width=800 height=600 frameBorder=0></iframe>
+<iframe
+  src="images/outage_frequency_hour_of_day.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 
 
